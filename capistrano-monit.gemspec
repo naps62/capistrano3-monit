@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Monit integration for Capistrano 3}
   gem.summary       = %q{Monit integration for Capistrano 3}
   gem.homepage      = "https://github.com/naps62/capistrano3-monit"
+  gem.license       = ['MIT']
 
   gem.files         = `git ls-files`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
