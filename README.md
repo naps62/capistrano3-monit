@@ -58,7 +58,7 @@ and `production-redis` processes.
 * Allow a customizable list of processes to manage, instead of making
   assumptions based on their names
 
-# Contributin
+# Contributing
 
 This is a very early work, extracted from a specific project i'm working on.
 If you require a new feature, please open an issue, or preferably, a pull request with
