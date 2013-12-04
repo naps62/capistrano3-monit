@@ -1,6 +1,4 @@
-# Capistrano 3 Monit
-
-Monit integration for Capistrano 3
+# Capistrano 3 Monit Wrapper
 
 ## Usage
 
@@ -8,7 +6,8 @@ Add the gem to your Gemfile
 
     gem 'capistrano3-monit', github: 'naps62/capistrano3-monit'
 
-Run `bundle` to update your `Gemfile.lock`, and the following to your `Capfile`:
+Run `bundle` to update your `Gemfile.lock`
+Add the following to your `Capfile`:
 
     require 'capistrano/monit'
 
@@ -18,6 +17,9 @@ The following tasks will be available to you:
     monit:start   # sends a start signal to all monitored processes
     monit:stop    # sends a stop signal to all monitored processes
     monit:restart # sends a restart signal to all monitored processes
+
+Additionally, `monit:restart` will automatically be called as a dependency of
+the `deploy:restart` task.
 
 Currently, the `start|stop|restart` tasks assume you only want to handle
 monitored processes related to the app being deployed. For this, the name of
