@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano3-monit"
-  gem.version       = '0.2.0'
+  gem.version       = '0.3.0'
   gem.authors       = ["Miguel Palhas"]
   gem.email         = ["mpalhas@gmail.com"]
   gem.description   = %q{Monit integration for Capistrano 3}
