@@ -18,8 +18,21 @@ The following tasks will be available to you:
     monit:stop    # sends a stop signal to all monitored processes
     monit:restart # sends a restart signal to all monitored processes
 
-Additionally, `monit:restart` will automatically be called as a dependency of
-the `deploy:restart` task.
+### Automatic restart
+
+Until version 0.3.0, `monit:restart` would automatically be hooked into your `deploy:restart` task. Starting in 0.4.0, that is no longer the case.
+
+If you want to achieve the same result, you can something like the following to your `config/deploy.rb`:
+
+```ruby
+namespace :deploy do
+  task :restart => 'monit:restart'
+end
+
+after 'deploy:publishing', 'deploy:restart'
+```
+
+## How it works
 
 Currently, the `start|stop|restart` tasks assume you only want to handle
 monitored processes related to the app being deployed. For this, the name of

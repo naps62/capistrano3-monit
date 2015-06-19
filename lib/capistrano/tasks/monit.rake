@@ -39,9 +39,3 @@ namespace :monit do
     end
   end
 end
-
-namespace :deploy do
-  task :restart => 'monit:restart'
-end
-
-after 'deploy:publishing', 'deploy:restart'
