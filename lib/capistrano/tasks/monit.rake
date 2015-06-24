@@ -1,5 +1,57 @@
 namespace :monit do
 
+  namespace :upstart do
+
+    desc 'Starts Monit (Upstart)'
+    task :start do
+      on roles :app do
+        execute :sudo, "/etc/init.d/monit start"
+      end
+    end
+
+    desc 'Stops Monit (Upstart)'
+    task :stop do
+      on roles :app do
+        execute :sudo, "/etc/init.d/monit stop"
+      end
+    end
+
+    desc 'Restarts Monit (Upstart)'
+    task :restart do
+      on roles :app do
+        execute :sudo, "/etc/init.d/monit restart"
+      end
+    end
+
+  end
+
+  namespace :systemd do
+
+    desc 'Starts Monit (Systemd)'
+    task :start do
+      on roles :app do
+        execute :sudo, "systemctl start monit"
+      end
+    end
+
+    desc 'Starts Monit (Systemd)'
+    task :stop do
+      on roles :app do
+        execute :sudo, "systemctl stop monit"
+      end
+    end
+
+    desc 'Starts Monit (Systemd)'
+    task :restart do
+      on roles :app do
+        execute :sudo, "systemctl restart monit"
+      end
+    end
+
+
+  end
+
+
   desc 'Monit status'
   task :status do
     on roles :app do
