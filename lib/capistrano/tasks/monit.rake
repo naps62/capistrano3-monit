@@ -23,9 +23,7 @@ namespace :monit do
   end
 
   def monit_do(*args)
-    on roles :app do
-      sudo_if_needed :execute, :monit, *args
-    end
+    sudo_if_needed :execute, :monit, *args
   end
 
   def all_processes_do(cmd)
