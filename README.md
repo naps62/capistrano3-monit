@@ -67,6 +67,14 @@ And if `monit:status` returns the following output:
 Then launching the `monit:start` task will only handle the `production-puma`
 and `production-redis` processes.
 
+## Configuring sudo
+
+If you don't want monit to be executed with sudo, add this to your `config/deploy.rb`:
+
+```ruby
+set :execute_monit_without_sudo, true
+```
+
 # TODO
 
 * Add tasks to manage the monit service itself
